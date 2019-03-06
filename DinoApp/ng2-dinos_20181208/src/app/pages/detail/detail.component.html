@@ -1,0 +1,58 @@
+<!-- ng2-dinos/src/app/pages/detail/detail.component.html -->
+
+<article id="content-wrapper" class="content-wrapper">
+
+  <app-loading *ngIf="loading"></app-loading>
+
+  <div *ngIf="isLoaded">
+
+      <section *ngIf="dino" id="detail-content-dinosaur" class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="text-center">{{dino.Name}}</h2>
+          </div>
+          
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Pronunciation:</h4>
+              <p class="list-group-item-text">
+                <em>{{dino.Pronunciation}}</em>   
+              </p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Name Means:</h4>
+              <p class="list-group-item-text">{{dino.MeaningOfName}}</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Length:</h4>
+              <p class="list-group-item-text">{{dino.LengthOfDino}}</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Diet:</h4>
+              <p class="list-group-item-text">{{dino.Diet}}</p>
+            </li>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Lived:</h4>
+              <p class="list-group-item-text">
+                {{dino.Period}}<br>
+                <em>({{dino.Mya}} million years ago)</em>
+              </p>
+            </li>
+          </ul>
+      
+          <div class="panel-body">
+            <p class="lead" [innerHTML]="dino.Info"></p>
+          </div>
+      
+          <div class="panel-footer">
+            <a routerLink="/">&larr; All Dinosaurs</a>
+          </div>
+        </section>
+      
+        <!-- Error -->
+        <p *ngIf="error" class="alert alert-danger">
+          <strong>Rawr!</strong> There was an error retrieving data for the dinosaur you requested.
+        </p>
+
+  </div>
+
+</article>

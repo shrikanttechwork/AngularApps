@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-head center">
+    <b>Upload User Snap Information</b>
+  </div>
+  <div class="card-content">
+    <form #imageForm=ngForm (ngSubmit)="OnSubmit(Caption,Image,ImageName)">
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+          <label for="Caption">Caption</label>
+        </div>
+      </div>
+      <img [src]="imageUrl" style="width:200px; height:150px;">
+      <div class="row">
+        <label>Materialize File Input</label>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Browse</span>
+            <input type="file" name="Image" id="Image" #Image accept="image/*" (change)="handelFileInput($event.target.files)" required>
+          </div>
+
+          <div class="file-path-wrapper">
+            <input name="ImageName" id="ImageName" #ImageName class="file-path validate" type="text" placeholder="Upload file" />
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
+    </form>
+  </div>
+</div>

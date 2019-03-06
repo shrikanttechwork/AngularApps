@@ -1,0 +1,88 @@
+<app-loading *ngIf="loading"></app-loading>
+  <div *ngIf="isLoaded"></div>
+  <!-- main app container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">                
+                <!-- Error -->
+                <p *ngIf="error" class="alert alert-danger">
+                    <strong>Rawr!</strong> There was an error submitting data for the dinosaur you requested.
+                </p>
+                
+                <form [formGroup]="editForm" name="form" class="form" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="Name">Name</label>
+                          <input type="text" class="form-control" name="Name" formControlName="Name"  [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" autofocus  /> 
+                          <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                            <div *ngIf="f.Name.errors.required">Name is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="Pronunciation">Pronunciation</label>
+                          <input type="text" class="form-control" name="Pronunciation" formControlName="Pronunciation" [ngClass]="{ 'is-invalid': submitted && f.Pronunciation.errors }" /> 
+                          <div *ngIf="submitted && f.Pronunciation.errors" class="invalid-feedback">
+                            <div *ngIf="f.Pronunciation.errors.required">Pronunciation is required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="MeaningOfName">MeaningOfName</label>
+                          <input type="text" class="form-control" name="MeaningOfName" formControlName="MeaningOfName" [ngClass]="{ 'is-invalid': submitted && f.MeaningOfName.errors }" />
+                          <div *ngIf="submitted && f.MeaningOfName.errors" class="invalid-feedback">
+                            <div *ngIf="f.MeaningOfName.errors.required">MeaningOfName is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="Diet">Diet</label>
+                          <input type="text" class="form-control" name="Diet" formControlName="Diet" [ngClass]="{ 'is-invalid': submitted && f.Diet.errors }" /> 
+                          <div *ngIf="submitted && f.Diet.errors" class="invalid-feedback">
+                            <div *ngIf="f.Diet.errors.required">Diet is required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="LengthOfDino">LengthOfDino</label>
+                          <input type="text" class="form-control" name="LengthOfDino" formControlName="LengthOfDino" [ngClass]="{ 'is-invalid': submitted && f.LengthOfDino.errors }" />
+                          <div *ngIf="submitted && f.LengthOfDino.errors" class="invalid-feedback">
+                            <div *ngIf="f.LengthOfDino.errors.required">LengthOfDino is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="Period">Period</label>
+                          <input type="text" class="form-control" name="Period" formControlName="Period" [ngClass]="{ 'is-invalid': submitted && f.Period.errors }" />
+                          <div *ngIf="submitted && f.Period.errors" class="invalid-feedback">
+                            <div *ngIf="f.Period.errors.required">Period is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="Mya">Mya</label>
+                          <input type="text" class="form-control" name="Mya" formControlName="Mya" [ngClass]="{ 'is-invalid': submitted && f.Mya.errors }" />
+                          <div *ngIf="submitted && f.Mya.errors" class="invalid-feedback">
+                            <div *ngIf="f.Mya.errors.required">Mya is required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label for="Info">Info</label>
+                          <textarea class="form-control" name="Info" formControlName="Info" rows="5" [ngClass]="{ 'is-invalid': submitted && f.Info.errors }" placeholder="Enter Information" ></textarea>
+                          <div *ngIf="submitted && f.Info.errors" class="invalid-feedback">
+                            <div *ngIf="f.Info.errors.required">Info is required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8 btn-toolbar pull-left">
+                          <button class="btn btn-primary">Submit</button>
+                          <button class="btn btn-info" type="reset">Revert</button>
+                        </div>
+                        <a class="form-group col-md-4 pull-right" routerLink="/dinosaur">&larr; All Dinosaurs</a>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>

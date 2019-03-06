@@ -1,0 +1,29 @@
+/*
+ * ng1-dinos
+ * Author: Kim Maida 
+ * Author URI: <http://github.com/kmaida>
+ * Source: <https://github.com/kmaida/ng1-dinos>
+ * License: MIT
+*/
+
+/*-- Core --*/
+
+// partials
+@import 'core/partials/layout.vars';
+@import 'core/partials/responsive.partial';
+
+// basics
+@import 'core/base';
+@import 'core/presentation';
+@import 'core/layout';
+
+/*-- Components --*/
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/loading';
+
+/*-- Pages --*/
+
+@import 'pages/home';
+@import 'pages/detail';
